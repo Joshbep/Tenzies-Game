@@ -1,7 +1,10 @@
 import './App.css';
 import Die from './components/Die.js'
+import React, {useState} from 'react';
 
 function App() {
+  const [dice, setDice] = React.useState(allNewDice())
+
 
   function allNewDice() {
     const newDice = []
@@ -10,20 +13,13 @@ function App() {
     }
     return newDice
 }
-console.log(allNewDice())
+
+  const diceElements = dice.map(die => <Die value={die} />)
+
   return (
     <main>
       <div className="dice-container">
-        <Die value="1"/>
-        <Die value="2"/>
-        <Die value="3"/>
-        <Die value="4"/>
-        <Die value="5"/>
-        <Die value="6"/>
-        <Die value="1"/>
-        <Die value="1"/>
-        <Die value="1"/>
-        <Die value="1"/>
+        {diceElements}
       </div>
     </main>
   );
