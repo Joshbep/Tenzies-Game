@@ -12,7 +12,11 @@ function App() {
         newDice.push(Math.ceil(Math.random() * 6))
     }
     return newDice
-}
+  }
+
+  function rollDice(){
+    setDice(allNewDice())
+  }
 
   const diceElements = dice.map(die => <Die value={die} />)
 
@@ -21,6 +25,7 @@ function App() {
       <div className="dice-container">
         {diceElements}
       </div>
+      <button className="roll-dice" onClick={rollDice}>Roll</button>
     </main>
   );
 }
