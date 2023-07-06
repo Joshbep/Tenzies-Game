@@ -19,9 +19,13 @@ function App() {
     return newDice
   }
 
-  function rollDice(){
-    setDice(allNewDice())
-  }
+  function rollDice() {
+    setDice(oldDice => oldDice.map(die => {
+        return die.isHeld ? 
+            die :
+            {}
+    }))
+}
 
   function holdDice(id) {
     setDice(oldDice => oldDice.map(die => {
